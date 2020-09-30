@@ -6,15 +6,39 @@ body{
     background: #23475b;
     color: white;
     padding: 32px 15px;
+    display:grid;
+    grid-template-columns: minman(auto,1024px);
+    justify-content: center
 }
+.hero-container{
+    display: grid;
+    grid-template-columns: 70px 1fr 320px ;
+    grid-template-areas:"badge title form"
+                        ". description form"
+                        ". countdown form";
+    gap: 10px;
+}
+.badge{
+    grid-area: badge;
+    
+}
+.badge img{
+    max-width: 70px;
+}
+
 .title{
+    grid-area:title;
     font-size: 36px;
     font-weight: normal;
     margin:0;
     display: flex;
     align-items: center;
 }
+.description{
+    grid-area:description;
+}
 .form{
+    grid-area: form;
     text-align: center;
     background: rgba(255, 255, 255, .9);
     padding: 1.5em;
@@ -43,4 +67,34 @@ body{
     font-size: 16px;
     border-bottom: 5px solid #6d932b;
     display: inline-block;
+}
+.countdown{
+    grid-area: countdown;
+}
+.countdown p{
+    font-size:20px;
+    text-align:center;
+    font-weight:300;
+}
+.countdown span{
+    font-size:33px;
+}
+.countdown span:after{
+    content:":";
+    display: inline-block;
+    margin: 0 5px;
+}
+.countdown span:last-child::after{
+    display:none;
+}
+@media screen and (max-width: 768px){
+    .hero-container{
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        grid-template-areas:"badge title "
+                            "description description"
+                            "form form"
+                            "countdown countdown ";
+        gap: 10px;
+    }
 }
