@@ -1,6 +1,6 @@
 .container{
     display: grid;
-    grid-template-columns: repeat(3, 250px);
+    grid-template-columns: repeat(auto-fill, 250px);
     gap: 5px;
     justify-content: center;
 }
